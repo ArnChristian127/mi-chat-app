@@ -1,0 +1,19 @@
+@import "tailwindcss";
+.scrollbar-custom::-webkit-scrollbar {
+  width: 4px; /* same as scrollbar-thin */
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #fce7f3; /* tailwind-pink-100 */
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #f472b6; /* tailwind-pink-400 */
+  border-radius: 9999px; /* full rounding */
+}
+
+/* Firefox support */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #f472b6 #fce7f3;
+}
