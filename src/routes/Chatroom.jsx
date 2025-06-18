@@ -61,9 +61,9 @@ export default function Chatroom() {
             <div className="container mx-auto flex justify-between items-center">
               <h1 className="font-bold text-xl">Global Chat</h1>
               {userData && (
-                <div className="bg-white px-2 py-2 hover:bg-gray-100 text-black rounded-lg flex items-center gap-2 text-plain sm:text-sm md:text-md lg:text-lg">
+                <div className="bg-white px-1 py-1 hover:bg-gray-100 text-black rounded-lg flex items-center gap-2 text-plain sm:text-sm md:text-md lg:text-lg">
                   <span className="bg-pink-300 text-white font-bold rounded-full w-6 h-6 items-center justify-center flex select-none">
-                    {userData.username?.charAt(0)}
+                    {userData.username?.charAt(0).toUpperCase()}
                   </span>
                   <span className="select-none">{userData.username}</span>
                 </div>
@@ -96,15 +96,18 @@ export default function Chatroom() {
             ))}
             <div ref={messagesEndRef} />
           </div>
-          <form onSubmit={handleSendMessage} className="flex items-center p-3 bg-pink-300 rounded-t-2xl shadow-xl">
+          <form onSubmit={handleSendMessage} className="flex items-center p-2 bg-pink-300 rounded-t-2xl shadow-xl">
             <input
               className="outline-none w-full p-2 rounded-lg bg-white"
               placeholder="Type your message..."
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
             />
-            <button type="submit" className="ml-4 bg-white text-pink-400 font-bold px-4 py-2 rounded-lg hover:bg-pink-100">
+            <button type="submit" className="ml-2 bg-white text-pink-400 font-bold px-4 py-2 rounded-lg hover:bg-pink-100 flex items-center gap-1">
               Send
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-send" viewBox="0 0 16 16">
+                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+              </svg>
             </button>
           </form>
           <MobileNavbar/>

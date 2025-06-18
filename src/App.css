@@ -1,15 +1,15 @@
 @import "tailwindcss";
 .scrollbar-custom::-webkit-scrollbar {
-  width: 4px; /* same as scrollbar-thin */
+  width: 4px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: #fce7f3; /* tailwind-pink-100 */
+  background: #fce7f3;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
-  background-color: #f472b6; /* tailwind-pink-400 */
-  border-radius: 9999px; /* full rounding */
+  background-color: #f472b6;
+  border-radius: 9999px;
 }
 
 /* Firefox support */
