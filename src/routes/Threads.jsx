@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar"
 import MobileNavbar from "../components/MobileNavbar"
 import ThreadSender from "../components/ThreadSender";
 import ThreadRemove from "../components/ThreadRemove";
+import ThreadComments from "../components/ThreadComments";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, collection, query, orderBy, onSnapshot } from "firebase/firestore";
@@ -14,6 +15,7 @@ export default function Threads() {
     const [userData, setUserData] = useState(null);
     const [isRemovePost, setRemovePost] = useState(false);
     const [getPostId, setPostId] = useState(null);
+    const [isComments, setComments] = useState(false);
     useEffect(() => {
         const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -43,6 +45,7 @@ export default function Threads() {
         <>
             {isPost && <ThreadSender show={isPost} onClose={() => setPost(false)} user={userData}/>}
             {isRemovePost && <ThreadRemove show={isRemovePost} onClose={() => setRemovePost(false)} id={getPostId}/>}
+            {isComments && <ThreadComments show={isComments} onClose={() => setComments(false)} id={getPostId} user={userData}/>}
             <div className="min-h-screen bg-pink-200">
                 <div className="grid md:grid-cols-4 lg:grid-cols-4">
                     <Navbar/>
@@ -88,6 +91,7 @@ export default function Threads() {
                                         )}
                                     </div>
                                     <p className="text-gray-700 whitespace-pre-wrap my-2">{post.content}</p>
+                                    <hr className="border-t border-gray-300 my-4" />
                                     <>
                                         <div className="flex gap-2">
                                             {post.postId === userData?.uid ? (
@@ -99,7 +103,10 @@ export default function Threads() {
                                                     Delete
                                                 </button>
                                             ) : null}
-                                            <button className="bg-pink-300 text-white mt-2 w-full rounded-lg p-1 hover:bg-pink-400 text-base sm:text-sm md:text-md lg:text-lg">
+                                            <button className="bg-pink-300 text-white mt-2 w-full rounded-lg p-1 hover:bg-pink-400 text-base sm:text-sm md:text-md lg:text-lg" onClick={() => {
+                                                setComments(true)
+                                                setPostId(post.id)
+                                            }}>
                                                 Comments
                                             </button>
                                         </div>
