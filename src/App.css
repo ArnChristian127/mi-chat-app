@@ -2,17 +2,13 @@
 .scrollbar-custom::-webkit-scrollbar {
   width: 4px;
 }
-
 .scrollbar-custom::-webkit-scrollbar-track {
   background: #fce7f3;
 }
-
 .scrollbar-custom::-webkit-scrollbar-thumb {
   background-color: #f472b6;
   border-radius: 9999px;
 }
-
-/* Firefox support */
 .scrollbar-custom {
   scrollbar-width: thin;
   scrollbar-color: #f472b6 #fce7f3;
