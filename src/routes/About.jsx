@@ -31,7 +31,7 @@ export default function About() {
                                         This project is open-source and available on GitHub.
                                         Feel free to contribute or use it as a reference for your own projects.
                                     </p>
-                                    <a className="bg-pink-300 hover:bg-pink-400 p-2 rounded-lg text-white font-bold" href="#">
+                                    <a className="bg-pink-300 hover:bg-pink-400 p-2 rounded-lg text-white font-bold" href="https://github.com/ArnChristian127/mi-chat-app">
                                         View Source Code
                                     </a>
                                 </div>
@@ -39,7 +39,7 @@ export default function About() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                                     <div className="bg-pink-300 rounded-lg p-3 flex items-center gap-2 shadow-lg">
                                         <img src="assets/arn-pogi.png" alt="arn-pogi" className="w-full h-auto max-w-[100px] rounded-full"/>
-                                        <div className="mb-5">
+                                        <div>
                                             <h1 className="text-2xl font-bold text-gray-600">Arn Christian S. Rosales</h1>
                                             <p>Junior Developer</p>
                                         </div>
